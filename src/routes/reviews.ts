@@ -16,8 +16,6 @@ export default async function reviewRoutes(fastify: FastifyInstance) {
 
       const input = parseResult.data;
 
-      const visits = await visitStore.getByUserId(input.user_id, '');
-
       const { data: visit, error: visitError } = await fastify.supabase
         .from('visits')
         .select('*')

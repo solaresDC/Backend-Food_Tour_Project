@@ -133,32 +133,41 @@ Content-Type: application/json
 
 ### --- REVIEWS ---
 
-### Submit a review for Apache Burger (after visiting)
-### NOTE: Replace REPLACE_WITH_VISIT_ID_FROM_FIRST_SUCCESSFUL_VISIT
-### with the "id" from the first successful POST /api/visits response
-### Should return: 201 with review object including calculated overall_rating
+### ════════════════════════════════════════
+### Submit review for Apache Burger
+### ════════════════════════════════════════
+### 🔄 UPDATED LINE:
+###    "visit_id": "1fa97363-11e2-4e8b-9247-243a859742a7", (or whatever ID from first successful visit)
+###    ❌ Was: "visit_id": "REPLACE_WITH_VISIT_ID_FROM_FIRST_SUCCESSFUL_VISIT",
+### ════════════════════════════════════════
 POST http://localhost:3001/api/reviews
 Content-Type: application/json
 
 {
-  "visit_id": "REPLACE_WITH_VISIT_ID_FROM_FIRST_SUCCESSFUL_VISIT",
+  "visit_id": "1fa97363-11e2-4e8b-9247-243a859742a7",
   "user_id": "aaaa1111-bbbb-cccc-dddd-eeee11111111",
   "restaurant_id": "11111111-1111-1111-1111-111111111111",
   "taste_rating": 5,
   "value_rating": 4,
   "vibe_rating": 4,
   "wow_rating": 5,
-  "comment": "Unreal smash burger. The chipotle aioli is addictive. Would come back even without the competition.",
+  "comment": "Unreal smash burger. The chipotle aioli is addictive.",
   "would_return": true
 }
 
+### ════════════════════════════════════════
 ### Review with invalid ratings (too high)
 ### Should return: 400 with "Rating cannot exceed 5"
+### ════════════════════════════════════════
+### 🔄 UPDATED LINE:
+###    "visit_id": "1fa97363-11e2-4e8b-9247-243a859742a7", (or whatever ID from first successful visit)
+###    ❌ Was: "visit_id": "REPLACE_WITH_VISIT_ID_FROM_FIRST_SUCCESSFUL_VISIT",
+### ════════════════════════════════════════
 POST http://localhost:3001/api/reviews
 Content-Type: application/json
 
 {
-  "visit_id": "REPLACE_WITH_VISIT_ID_FROM_FIRST_SUCCESSFUL_VISIT",
+  "visit_id": "1fa97363-11e2-4e8b-9247-243a859742a7",
   "user_id": "aaaa1111-bbbb-cccc-dddd-eeee11111111",
   "restaurant_id": "11111111-1111-1111-1111-111111111111",
   "taste_rating": 7,
@@ -169,13 +178,19 @@ Content-Type: application/json
   "would_return": true
 }
 
+### ════════════════════════════════════════
 ### Review with missing would_return field
 ### Should return: 400 with 'The "would you return?" field is required'
+### ════════════════════════════════════════
+### 🔄 UPDATED LINE:
+###    "visit_id": "1fa97363-11e2-4e8b-9247-243a859742a7", (or whatever ID from first successful visit)
+###    ❌ Was: "visit_id": "REPLACE_WITH_VISIT_ID_FROM_FIRST_SUCCESSFUL_VISIT",
+### ════════════════════════════════════════
 POST http://localhost:3001/api/reviews
 Content-Type: application/json
 
 {
-  "visit_id": "REPLACE_WITH_VISIT_ID_FROM_FIRST_SUCCESSFUL_VISIT",
+  "visit_id": "1fa97363-11e2-4e8b-9247-243a859742a7",
   "user_id": "aaaa1111-bbbb-cccc-dddd-eeee11111111",
   "restaurant_id": "11111111-1111-1111-1111-111111111111",
   "taste_rating": 5,
